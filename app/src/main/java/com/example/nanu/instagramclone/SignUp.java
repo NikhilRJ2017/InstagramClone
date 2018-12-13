@@ -1,5 +1,6 @@
 package com.example.nanu.instagramclone;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -25,6 +26,8 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener {
     private TextView txtGetData;
     private Button getAllDataOnce;
     private String allPersonalDetails;
+
+    private Button getToNextActivity;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,6 +41,7 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener {
         professionEdtTxt = findViewById(R.id.professionEdtTxt);
         txtGetData = findViewById(R.id.txtGetData);
         getAllDataOnce = findViewById(R.id.getAllDataOnce);
+        getToNextActivity = findViewById(R.id.getToNextActivity);
 
         saveBtn.setOnClickListener(SignUp.this);
         txtGetData.setOnClickListener(new View.OnClickListener() {
@@ -79,6 +83,15 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener {
                         }
                     }
                 });
+
+            }
+        });
+
+        getToNextActivity.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(SignUp.this,SignUpLogIn.class);
+                startActivity(intent);
 
             }
         });
