@@ -1,5 +1,6 @@
 package com.example.nanu.instagramclone;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -43,7 +44,9 @@ public class SignUpLogIn extends AppCompatActivity {
                     public void done(ParseException e) {
 
                         if(e == null){
-                            FancyToast.makeText(SignUpLogIn.this,appUser.get("username").toString()+" is successfully Signed In",FancyToast.LENGTH_LONG,FancyToast.SUCCESS,true).show();
+                            FancyToast.makeText(SignUpLogIn.this,appUser.get("username").toString()+" is successfully Signed up",FancyToast.LENGTH_LONG,FancyToast.SUCCESS,true).show();
+                            Intent welcomePageIntent = new Intent(SignUpLogIn.this,WelcomeActivity.class);
+                            startActivity(welcomePageIntent);
                         }else{
                             FancyToast.makeText(SignUpLogIn.this,e.getMessage()+"",FancyToast.LENGTH_LONG,FancyToast.ERROR,true).show();
                         }
@@ -65,7 +68,8 @@ public class SignUpLogIn extends AppCompatActivity {
 
                         if (user != null && e == null){
                             FancyToast.makeText(SignUpLogIn.this,user.get("username").toString()+" is successfully Logged In",FancyToast.LENGTH_LONG,FancyToast.SUCCESS,true).show();
-
+                            Intent welcomePageIntent = new Intent(SignUpLogIn.this,WelcomeActivity.class);
+                            startActivity(welcomePageIntent);
                         }else {
                             FancyToast.makeText(SignUpLogIn.this,e.getMessage()+"",FancyToast.LENGTH_LONG,FancyToast.ERROR,true).show();
 
